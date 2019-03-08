@@ -1,13 +1,14 @@
-package com.example.demo.service;
+package org.tact.demo.service;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.CityUtil;
-import com.example.demo.StateUtil;
+import org.tact.demo.CityUtil;
+import org.tact.demo.StateUtil;
 
 @Service
 public class DemoService {
@@ -27,7 +28,20 @@ public class DemoService {
     	String city = CityUtil.getRandomCity();
     	
         logger.info("City {}", city);
-        this.simpMessagingTemplate.convertAndSend("/random/city", city);
+        
+        JSONObject cityObj = new JSONObject();
+
+        try {
+			cityObj.put("city", "city");			
+	        
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}       
+        
+        this.simpMessagingTemplate.convertAndSend("/random/city", cityObj);
+        
+        //this.simpMessagingTemplate.convertAndSend("/random/city", city);
     }
     
     @Scheduled(cron = "*/4 * * * * *")

@@ -1,4 +1,4 @@
-package com.example.demo;
+package org.tact.demo;
 
 import java.util.Random;
 

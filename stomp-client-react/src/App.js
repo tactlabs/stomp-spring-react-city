@@ -17,7 +17,8 @@ class App extends Component {
     this.client = new Client();
 
     this.client.configure({
-      brokerURL: 'ws://localhost:1878/stomp',
+      brokerURL: 'ws://18.224.217.6:8012/stomp',
+      //brokerURL: 'ws://18.224.217.6:8085/gs-guide-websocket',
       onConnect: () => {
         console.log('onConnect');
 
