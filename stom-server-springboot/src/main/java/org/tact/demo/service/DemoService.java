@@ -39,7 +39,10 @@ public class DemoService {
 			e.printStackTrace();
 		}       
         
-        this.simpMessagingTemplate.convertAndSend("/random/city", cityObj);
+        logger.info("cityObj : ", cityObj);
+        logger.info("cityObj toString : ", cityObj.toString());
+        
+        this.simpMessagingTemplate.convertAndSend("/random/city", cityObj.toString());
         
         //this.simpMessagingTemplate.convertAndSend("/random/city", city);
     }
