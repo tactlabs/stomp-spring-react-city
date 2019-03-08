@@ -32,7 +32,7 @@ public class DemoService {
         JSONObject cityObj = new JSONObject();
 
         try {
-			cityObj.put("city", "city");			
+			cityObj.put("city", city);			
 	        
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
